@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTMX Word Highlighting with Tooltips</title>
+    <script src="https://unpkg.com/htmx.org@2.0.4" integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+" crossorigin="anonymous"></script>
+    <style>
+        /* Highlight style */
+        .highlight {
+            color: #ff6b6b;
+            text-decoration: underline;
+            text-decoration-color: #ff6b6b;
+            text-decoration-thickness: 2px;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.2s ease;
+        }
+        
+        .highlight:hover {
+            color: #ff3838;
+            text-decoration-color: #ff3838;
+        }
+        
+        /* Modern tooltip style */
+        .tooltip {
+            visibility: hidden;
+            width: 300px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 15px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        .tooltip::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #333 transparent transparent transparent;
+        }
+        
+        .highlight:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div id="content" hx-get="/load-content" hx-trigger="load">
+        <!-- Content will be loaded here -->
+        Loading content...
+    </div>
+
+    <!-- Template for highlighted words (can be server-side rendered) -->
+    <script id="highlight-template" type="text/html">
+        <span class="highlight">
+            ${word}
+            <span class="tooltip">${tooltip}</span>
+        </span>
+    </script>
+
+    <script>
+        // Process content after load to add highlights
+        document.body.addEventListener('htmx:afterRequest', function(evt) {
+            if (evt.detail.elt.id === 'content') {
+                // This would normally be done server-side, but showing client-side for demo
+                const content = document.getElementById('content');
+                const text = content.textContent;
+                
+                // Define your keywords and tooltips (could come from server)
+                const highlights = {
+                    "HTMX": "HTMX is a lightweight JavaScript library for adding interactivity to web pages",
+                    "tooltip": "A tooltip is a small pop-up box that appears when hovering over an element",
+                    "highlight": "To emphasize or make something stand out visually"
+                };
+                
+                // Process each highlight
+                let newHtml = text;
+                for (const [word, tooltip] of Object.entries(highlights)) {
+                    const regex = new RegExp(`\\b${word}\\b`, 'gi');
+                    const template = document.getElementById('highlight-template').innerHTML;
+                    const replacement = template
+                        .replace('${word}', word)
+                        .replace('${tooltip}', tooltip);
+                    newHtml = newHtml.replace(regex, replacement);
+                }
+                
+                content.innerHTML = newHtml;
+            }
+        });
+    </script>
+</body>
+</html>
