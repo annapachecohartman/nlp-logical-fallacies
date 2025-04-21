@@ -246,40 +246,135 @@ def get_coref(text, ann, debug=False):
                 ans += token.word + " "
     return ans
 
-
 if __name__ == '__main__':
     import time
+    import os
+    import json
+    from datasets import load_dataset
+    import spacy
+    from sentence_transformers import SentenceTransformer
+    from stanza.server import CoreNLPClient
+
+    # Paths
     core_nlp_path = '/Users/annahartman/Desktop/stanford-corenlp/*'
+    output_dir = "data"
+    os.makedirs(output_dir, exist_ok=True)
+
     # Initialize tools
-    en = spacy.load('en_core_web_sm')
-    sw_spacy = en.Defaults.stop_words
-    model = SentenceTransformer('all-MiniLM-L6-v2')  # or any model you want
+    nlp = spacy.load('en_core_web_sm')
+    sw_spacy = nlp.Defaults.stop_words
+    model = SentenceTransformer('all-MiniLM-L6-v2')
+
     client = CoreNLPClient(
-    annotators=['tokenize', 'ssplit', 'pos', 'lemma', 'ner', 'parse', 'depparse', 'coref'],
-    timeout=15000,
-    memory='4G',
-    endpoint='http://localhost:9000'
+        annotators=['tokenize', 'ssplit', 'pos', 'lemma', 'ner', 'parse', 'depparse', 'coref'],
+        timeout=15000,
+        memory='4G',
+        endpoint='http://localhost:9000'
     )
 
-    
-    # Wait for the client to be ready
+    print("Starting CoreNLP...")
     client.start()
-    time.sleep(5)  # give it a moment to spin up
+    time.sleep(5)  # give CoreNLP time to start
+    from tqdm import tqdm
+    import json
+    from langdetect import detect
 
-    # Example texts to test
-    test_articles = [
-        "John went to the store. He bought some milk.",
-        "The dog chased the ball because it was rolling down the hill.",
-        "When Mary saw the results, she was thrilled. Her hard work paid off.",
-         "We shouldn't trust what he says about climate change because he's not a scientist.",
-        "Jack is a good athlete. Jack comes from Canada. Therefore, all Canadians are good athletes.",
-        "My neighbor adopted a dog. Now she’s always happy because dogs bring joy.",
-        "All cats are mammals. Felix is a cat. Therefore, Felix is a mammal.",
-    ]
+    output_path = "data/masked_output.jsonl"
+    def mask_and_save(dataset, text_field, label_field, save_path):
+        with open(output_path, "a", encoding="utf-8") as out_file:
+            for i, example in tqdm(enumerate(dataset), total=len(dataset)):
+                text = example[text_field]
+                
+                try:
+                    lang = detect(text)
+                    if lang != "en":
+                        print(f"[{i}] ⏭️ Skipped (language={lang})")
+                        continue
 
-    for i, text in enumerate(test_articles):
-        print(f"\nOriginal Article {i+1}:\n{text}")
-        masked = mask_out_content(text, model, client)
-        print(f"\nMasked Article {i+1}:\n{masked}")
+                    masked = mask_out_content(text, model, client)
+                    json.dump({"masked": masked, "original": text}, out_file)
+                    out_file.write("\n")
+                    out_file.flush()
+                    print(f"[{i}] ✅ Masked and saved")
 
+                except Exception as e:
+                    print(f"[{i}] ❌ Error: {e}")
+
+    # def mask_and_save(dataset, text_field, label_field, save_path):
+    #     masked_data = []
+    #     for example in dataset:
+    #         try:
+    #             original = example[text_field]
+    #             masked = mask_out_content(original, model, client)
+    #             masked_data.append({
+    #                 "original": original,
+    #                 "masked": masked,
+    #                 "label": example[label_field]
+    #             })
+    #         except Exception as e:
+    #             masked_data.append({
+    #                 "original": example[text_field],
+    #                 "masked": f"ERROR - {e}",
+    #                 "label": example[label_field]
+    #             })
+        
+    #     # Save to JSONL
+    #     with open(save_path, "w", encoding="utf-8") as f:
+    #         for entry in masked_data:
+    #             f.write(json.dumps(entry) + "\n")
+    #     print(f"Saved to {save_path}")
+
+    # Load and process datasets
+    dataset1 = load_dataset("MidhunKanadan/logical-fallacy-classification", split="train")
+    dataset2 = load_dataset("tasksource/logical-fallacy", split="train")  # Make sure you specify the split
+
+    # print("Processing dataset 1 (MidhunKanadan)...")
+    # mask_and_save(dataset1, "statement", "label", os.path.join(output_dir, "masked_midhun.jsonl"))
+
+    print("Processing dataset 2 (tasksource)...")
+    mask_and_save(dataset2, "source_article", "logical_fallacies", os.path.join(output_dir, "masked_tasksource.jsonl"))
+
+    print("Done masking. Shutting down CoreNLP...")
     client.stop()
+
+# if __name__ == '__main__':
+#     import time
+#     core_nlp_path = '/Users/annahartman/Desktop/stanford-corenlp/*'
+#     # Initialize tools
+#     en = spacy.load('en_core_web_sm')
+#     sw_spacy = en.Defaults.stop_words
+#     model = SentenceTransformer('all-MiniLM-L6-v2')  # or any model you want
+#     client = CoreNLPClient(
+#     annotators=['tokenize', 'ssplit', 'pos', 'lemma', 'ner', 'parse', 'depparse', 'coref'],
+#     timeout=15000,
+#     memory='4G',
+#     endpoint='http://localhost:9000'
+#     )
+
+    
+#     # Wait for the client to be ready
+#     client.start()
+#     time.sleep(5)  # give it a moment to spin up
+
+#     # Example texts to test
+#     test_articles = [
+#         "John went to the store. He bought some milk.",
+#         "The dog chased the ball because it was rolling down the hill.",
+#         "When Mary saw the results, she was thrilled. Her hard work paid off.",
+#          "We shouldn't trust what he says about climate change because he's not a scientist.",
+#         "Jack is a good athlete. Jack comes from Canada. Therefore, all Canadians are good athletes.",
+#         "My neighbor adopted a dog. Now she’s always happy because dogs bring joy.",
+#         "All cats are mammals. Felix is a cat. Therefore, Felix is a mammal.",
+#     ]
+
+#     output_file = "masked_articles_output.txt"
+#     with open(output_file, "w", encoding="utf-8") as file:
+#         for i, text in enumerate(test_articles):
+#             file.write(f"\nOriginal Article {i+1}:\n{text}\n")
+#             try:
+#                 masked = mask_out_content(text, model, client)
+#                 file.write(f"\nMasked Article {i+1}:\n{masked}\n")
+#             except Exception as e:
+#                 file.write(f"\nMasked Article {i+1}: ERROR - {e}\n")
+
+#     client.stop()
