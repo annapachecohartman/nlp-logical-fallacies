@@ -1,0 +1,31 @@
+<div class="initial-container">
+  <div class="chat-container">
+    <form
+      id="analysis-form"
+      hx-post="/analyze"
+      hx-target="#content-area"
+      hx-swap="innerHTML"
+    >
+      <div class="input-container">
+        <textarea
+          name="userArgument"
+          class="chat-input"
+          placeholder="Enter your argument or statement here..."
+          required
+        >{{initial_text}}</textarea>
+
+        <select name="model" class="dropdown-select" required>
+          <option value="" disabled selected>Select model</option>
+          <option value="GPT-4.1">GPT-4.1</option>
+          <option value="Anna Banana Model">Anna Banana Model</option>
+          <option value="Tiny Llama">Tiny Llama</option>
+          <option value="GPT-4.1+Aristotle">GPT-4.1+Aristotle</option>
+          <option value=">Anna Banana Model+Aristotle">Anna Banana Model+Aristotle</option>
+          <option value="Tiny Llama+Aristotle">Tiny Llama+Aristotle</option>
+        </select>
+
+        <button type="submit" class="submit-button">&#10132;</button>
+      </div>
+    </form>
+  </div>
+</div>
