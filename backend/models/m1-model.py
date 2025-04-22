@@ -14,6 +14,8 @@ import os
 # Define the device for training
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
+
+
 # Load dataset
 dataset = load_dataset("MidhunKanadan/logical-fallacy-classification", split="train")
 texts = dataset["statement"]
@@ -150,8 +152,12 @@ new_samples = [
 for sample in new_samples:
     dataset = dataset.add_item(sample)
 
-texts = dataset["statement"]
+# Prepare texts and labels
+texts = dataset["masked_statement"]
 labels = dataset["label"]
+
+# texts = dataset["statement"]
+# labels = dataset["label"]
 
 # Map string labels to integers
 unique_labels = sorted(set(labels))
@@ -221,6 +227,8 @@ num_epochs = 5
 patience = 2
 best_val_acc = 0
 epochs_without_improvement = 0
+
+
 
 
 for epoch in range(num_epochs):

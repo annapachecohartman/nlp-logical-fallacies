@@ -1,0 +1,45 @@
+import os
+import sys
+
+path = os.path.abspath(os.path.join(__file__, "../../../"))
+sys.path.append(path)
+
+from file_paths import FilePaths
+
+
+class Constants(FilePaths):
+    # Fallacy Types (Expanded)
+    fallacy_type_alignment = {'Imprecise/Unclear': 'Inaccurate',
+                              'Imprecise': 'Inaccurate',
+                              'Unclear': 'Inaccurate',
+                              'Confused': 'Inaccurate',
+                              'Unbiased': 'Sound_reasoning',
+                              'Insightful': 'Sound_reasoning',
+                              'Accurate': 'Sound_reasoning',
+                              'Neutral': 'Sound_reasoning',
+                              'nan': 'Sound_reasoning',
+                              'Exaggerating': 'Cherry-picking',
+                              'Overstates_scientific_confidence': 'Cherry-picking',
+                              'Clickbait_headline': 'Cherry-picking',
+                              'Lack_of_context': 'Biased'}
+
+    # Structure-Aware Constants
+    MASK_PREFIX = "[MSK"
+    MASK_SUFFIX = "]"
+    MASK_TEMPLATE = "[MSK{}]"
+
+    # Coreference and Similarity Thresholds
+    EMBEDDING_SIMILARITY_THRESHOLD = 0.8  # For paraphrase matching
+    COREFERENCE_RESOLUTION_CONFIDENCE = 0.7  # Minimum confidence to resolve coreferences
+
+    # NLP Models for Coreference and Sentence Embeddings
+    SPACY_MODEL = "en_core_web_trf"  # For coreference resolution
+    SENTENCE_EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"  # Sentence embeddings for similarity
+
+    # Default Constants
+    DEFAULT_DATASET = "edu"  # Default dataset type
+    DEFAULT_NONE_TEXT = "No logical fallacy is present in this statement."
+
+    # Cache/Log Paths (Optional)
+    LOG_DIR = "logs/"
+    CACHE_DIR = "cache/"
