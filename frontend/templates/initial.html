@@ -7,7 +7,13 @@
       hx-swap="innerHTML"
     >
       <div class="input-container">
-        <!-- Styled dropdown -->
+        <textarea
+          name="userArgument"
+          class="chat-input"
+          placeholder="Enter your argument or statement here..."
+          required
+        >{{initial_text}}</textarea>
+
         <select name="model" class="dropdown-select" required>
           <option value="" disabled selected>Select model</option>
           <option value="GPT-4.1">GPT-4.1</option>
@@ -17,13 +23,6 @@
           <option value=">Anna Banana Model+Aristotle">Anna Banana Model+Aristotle</option>
           <option value="Tiny Llama+Aristotle">Tiny Llama+Aristotle</option>
         </select>
-
-        <textarea
-          name="userArgument"
-          class="chat-input"
-          placeholder="Enter your argument or statement here..."
-          required
-        >{{initial_text}}</textarea>
 
         <button type="submit" class="submit-button">&#10132;</button>
       </div>
