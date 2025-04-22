@@ -2656,3 +2656,119 @@
 {"masked": "Losing tropical forests is not somehow cheaper than putting up wind farms in the US or Sahara . \u201d ", "original": "Losing tropical forests is not somehow cheaper than putting up wind farms in the US or Sahara . \u201d", "label": "fallacy of extension"}
 {"masked": "Lawrence said a steep drop in MSK<0> to zero by 2040 would negate the need for MSK<1> negative MSK<0> MSK<1> technology that would damage forests MSK<1> ability to suck up carbon , maintain local water supplies and weather patterns and provide a home for a riot of birds , mammals , insects and other creatures . ", "original": "Lawrence said a steep drop in emissions to zero by 2040 would negate the need for \u201c negative emissions \u201d technology that would damage forests \u2019 ability to suck up carbon , maintain local water supplies and weather patterns and provide a home for a riot of birds , mammals , insects and other creatures .", "label": "false dilemma"}
 {"masked": "But looking to the future , mass MSK<0> bleaching on the Great Barrier MSK<0> will likely be an annual phenomenon within a decade , Torda said . ", "original": "But looking to the future , mass coral bleaching on the Great Barrier Reef will likely be an annual phenomenon within a decade , Torda said .", "label": "faulty generalization"}
+{"masked": "The Earth revolves around the Sun . ", "original": "The Earth revolves around the Sun.", "label": "None"}
+{"masked": "There are seven continents on Earth . ", "original": "There are seven continents on Earth.", "label": "None"}
+{"masked": "The square root of 9 is 3 . ", "original": "The square root of 9 is 3.", "label": "None"}
+{"masked": "MSK<0> are domesticated MSK<0> . ", "original": "Dogs are domesticated animals.", "label": "None"}
+{"masked": "The human body contains 206 bones . ", "original": "The human body contains 206 bones.", "label": "None"}
+{"masked": "Photosynthesis occurs in the chloroplasts of plant cells . ", "original": "Photosynthesis occurs in the chloroplasts of plant cells.", "label": "None"}
+{"masked": "Mount Everest is the highest mountain above sea level . ", "original": "Mount Everest is the highest mountain above sea level.", "label": "None"}
+{"masked": "The Pacific MSK<0> is the largest MSK<0> on Earth . ", "original": "The Pacific Ocean is the largest ocean on Earth.", "label": "None"}
+{"masked": "The freezing point of water is 0 \u00b0C . ", "original": "The freezing point of water is 0\u00b0C.", "label": "None"}
+{"masked": "Light travels faster than sound . ", "original": "Light travels faster than sound.", "label": "None"}
+{"masked": "The moon orbits the Earth . ", "original": "The moon orbits the Earth.", "label": "None"}
+{"masked": "Gravity pulls objects toward the Earth \u2019s center . ", "original": "Gravity pulls objects toward the Earth\u2019s center.", "label": "None"}
+{"masked": "A triangle has three sides . ", "original": "A triangle has three sides.", "label": "None"}
+{"masked": "Penguins are birds that can not fly . ", "original": "Penguins are birds that cannot fly.", "label": "None"}
+{"masked": "Carbon dioxide is a greenhouse gas . ", "original": "Carbon dioxide is a greenhouse gas.", "label": "None"}
+{"masked": "Whales are mammals , not fish . ", "original": "Whales are mammals, not fish.", "label": "None"}
+{"masked": "The Great Wall of China is visible from space only under specific conditions . ", "original": "The Great Wall of China is visible from space only under specific conditions.", "label": "None"}
+{"masked": "Venus is the hottest planet in the solar system . ", "original": "Venus is the hottest planet in the solar system.", "label": "None"}
+{"masked": "A leap MSK<0> occurs every four MSK<0> . ", "original": "A leap year occurs every four years.", "label": "None"}
+{"masked": "Sound requires a medium to travel . ", "original": "Sound requires a medium to travel.", "label": "None"}
+{"masked": "The human heart has four chambers . ", "original": "The human heart has four chambers.", "label": "None"}
+{"masked": "Mars is known as the Red Planet . ", "original": "Mars is known as the Red Planet.", "label": "None"}
+{"masked": "A healthy diet includes a variety of nutrients . ", "original": "A healthy diet includes a variety of nutrients.", "label": "None"}
+{"masked": "The Nile is the longest river in Africa . ", "original": "The Nile is the longest river in Africa.", "label": "None"}
+{"masked": "The chemical formula for water is H \u2082 O. ", "original": "The chemical formula for water is H\u2082O.", "label": "None"}
+{"masked": "The brain is the control center of the nervous system . ", "original": "The brain is the control center of the nervous system.", "label": "None"}
+{"masked": "Electricity is conducted by metals like copper . ", "original": "Electricity is conducted by metals like copper.", "label": "None"}
+{"masked": "Rainbows are caused by light refraction in water droplets . ", "original": "Rainbows are caused by light refraction in water droplets.", "label": "None"}
+{"masked": "A MSK<0> eclipse occurs when the Moon passes between Earth and the MSK<0> . ", "original": "A solar eclipse occurs when the Moon passes between Earth and the Sun.", "label": "None"}
+{"masked": "Cows are herbivores . ", "original": "Cows are herbivores.", "label": "None"}
+{"masked": "Saturn has rings made of ice and rock . ", "original": "Saturn has rings made of ice and rock.", "label": "None"}
+{"masked": "The internet was developed in the late 20th century . ", "original": "The internet was developed in the late 20th century.", "label": "None"}
+{"masked": "Recycling reduces landfill waste . ", "original": "Recycling reduces landfill waste.", "label": "None"}
+{"masked": "Oxygen is essential for human respiration . ", "original": "Oxygen is essential for human respiration.", "label": "None"}
+{"masked": "Helium is lighter than air . ", "original": "Helium is lighter than air.", "label": "None"}
+{"masked": "Bacteria can be both harmful and beneficial . ", "original": "Bacteria can be both harmful and beneficial.", "label": "None"}
+{"masked": "The Pythagorean theorem applies to right triangles . ", "original": "The Pythagorean theorem applies to right triangles.", "label": "None"}
+{"masked": "Fossils provide evidence of past life . ", "original": "Fossils provide evidence of past life.", "label": "None"}
+{"masked": "The seasons are caused by the tilt of the Earth 's axis . ", "original": "The seasons are caused by the tilt of the Earth's axis.", "label": "None"}
+{"masked": "A compass points to magnetic north . ", "original": "A compass points to magnetic north.", "label": "None"}
+{"masked": "Volcanoes form at tectonic plate boundaries . ", "original": "Volcanoes form at tectonic plate boundaries.", "label": "None"}
+{"masked": "The lungs are responsible for gas exchange . ", "original": "The lungs are responsible for gas exchange.", "label": "None"}
+{"masked": "The Eiffel Tower is in MSK<0> , MSK<0> . ", "original": "The Eiffel Tower is in Paris, France.", "label": "None"}
+{"masked": "Atoms are the basic units of matter . ", "original": "Atoms are the basic units of matter.", "label": "None"}
+{"masked": "DNA carries genetic information . ", "original": "DNA carries genetic information.", "label": "None"}
+{"masked": "Clouds are formed from condensed water vapor . ", "original": "Clouds are formed from condensed water vapor.", "label": "None"}
+{"masked": "Lightning is caused by a discharge of static electricity . ", "original": "Lightning is caused by a discharge of static electricity.", "label": "None"}
+{"masked": "Sharks have cartilaginous skeletons . ", "original": "Sharks have cartilaginous skeletons.", "label": "None"}
+{"masked": "The pancreas regulates blood sugar levels . ", "original": "The pancreas regulates blood sugar levels.", "label": "None"}
+{"masked": "Antarctica is the coldest continent . ", "original": "Antarctica is the coldest continent.", "label": "None"}
+{"masked": "Mammals give birth to live young . ", "original": "Mammals give birth to live young.", "label": "None"}
+{"masked": "Gravity affects all objects with mass . ", "original": "Gravity affects all objects with mass.", "label": "None"}
+{"masked": "Birds have hollow bones to aid in flight . ", "original": "Birds have hollow bones to aid in flight.", "label": "None"}
+{"masked": "Humans have 23 pairs of chromosomes . ", "original": "Humans have 23 pairs of chromosomes.", "label": "None"}
+{"masked": "The speed of light is approximately 299,792 km / s. ", "original": "The speed of light is approximately 299,792 km/s.", "label": "None"}
+{"masked": "Caterpillars turn into butterflies through metamorphosis . ", "original": "Caterpillars turn into butterflies through metamorphosis.", "label": "None"}
+{"masked": "Zebras are native to Africa . ", "original": "Zebras are native to Africa.", "label": "None"}
+{"masked": "Water is composed of two hydrogen MSK<0> and one oxygen MSK<0> . ", "original": "Water is composed of two hydrogen atoms and one oxygen atom.", "label": "None"}
+{"masked": "Airplanes fly due to lift generated by wings . ", "original": "Airplanes fly due to lift generated by wings.", "label": "None"}
+{"masked": "Electric current is measured in amperes . ", "original": "Electric current is measured in amperes.", "label": "None"}
+{"masked": "The skin is the body \u2019s largest organ . ", "original": "The skin is the body\u2019s largest organ.", "label": "None"}
+{"masked": "Reptiles are cold - blooded animals . ", "original": "Reptiles are cold-blooded animals.", "label": "None"}
+{"masked": "The Amazon is the largest rainforest in the world . ", "original": "The Amazon is the largest rainforest in the world.", "label": "None"}
+{"masked": "MSK<0> has phases due to MSK<0> orbit around Earth . ", "original": "The moon has phases due to its orbit around Earth.", "label": "None"}
+{"masked": "Temperature is measured in Celsius or Fahrenheit . ", "original": "Temperature is measured in Celsius or Fahrenheit.", "label": "None"}
+{"masked": "The liver helps detoxify substances in the body . ", "original": "The liver helps detoxify substances in the body.", "label": "None"}
+{"masked": "An octopus has eight arms . ", "original": "An octopus has eight arms.", "label": "None"}
+{"masked": "Bananas are a good source of potassium . ", "original": "Bananas are a good source of potassium.", "label": "None"}
+{"masked": "The piano is a stringed instrument . ", "original": "The piano is a stringed instrument.", "label": "None"}
+{"masked": "Earthquakes are caused by movement of tectonic plates . ", "original": "Earthquakes are caused by movement of tectonic plates.", "label": "None"}
+{"masked": "Copper is a good conductor of electricity . ", "original": "Copper is a good conductor of electricity.", "label": "None"}
+{"masked": "Ice melts at 0 \u00b0C . ", "original": "Ice melts at 0\u00b0C.", "label": "None"}
+{"masked": "Mercury is the closest planet to the Sun . ", "original": "Mercury is the closest planet to the Sun.", "label": "None"}
+{"masked": "Trees produce oxygen through photosynthesis . ", "original": "Trees produce oxygen through photosynthesis.", "label": "None"}
+{"masked": "An adult human has 32 teeth . ", "original": "An adult human has 32 teeth.", "label": "None"}
+{"masked": "MSK<0> shed MSK<0> skin regularly . ", "original": "Snakes shed their skin regularly.", "label": "None"}
+{"masked": "The MSK<0> is a star at the center of our MSK<0> system . ", "original": "The sun is a star at the center of our solar system.", "label": "None"}
+{"masked": "A liter is equal to 1000 milliliters . ", "original": "A liter is equal to 1000 milliliters.", "label": "None"}
+{"masked": "Most plants need sunlight to grow . ", "original": "Most plants need sunlight to grow.", "label": "None"}
+{"masked": "Gold is a soft , yellow metal . ", "original": "Gold is a soft, yellow metal.", "label": "None"}
+{"masked": "The MSK<0> is the largest hot MSK<0> in the world . ", "original": "The Sahara is the largest hot desert in the world.", "label": "None"}
+{"masked": "Tides are caused by the gravitational pull of the moon . ", "original": "Tides are caused by the gravitational pull of the moon.", "label": "None"}
+{"masked": "The MSK<0> protects the MSK<0> cord . ", "original": "The spine protects the spinal cord.", "label": "None"}
+{"masked": "Sound is measured in decibels . ", "original": "Sound is measured in decibels.", "label": "None"}
+{"masked": "Plastic can take hundreds of years to decompose . ", "original": "Plastic can take hundreds of years to decompose.", "label": "None"}
+{"masked": "Water covers about 71 % of the Earth \u2019s surface . ", "original": "Water covers about 71% of the Earth\u2019s surface.", "label": "None"}
+{"masked": "Lions are apex predators in their ecosystem . ", "original": "Lions are apex predators in their ecosystem.", "label": "None"}
+{"masked": "Mathematics is the study of numbers and patterns . ", "original": "Mathematics is the study of numbers and patterns.", "label": "None"}
+{"masked": "The keyboard is an input device for a computer . ", "original": "The keyboard is an input device for a computer.", "label": "None"}
+{"masked": "A rainbow has seven colors . ", "original": "A rainbow has seven colors.", "label": "None"}
+{"masked": "Cacti store water in their stems . ", "original": "Cacti store water in their stems.", "label": "None"}
+{"masked": "Camels can survive without water for long periods . ", "original": "Camels can survive without water for long periods.", "label": "None"}
+{"masked": "The Earth orbits the Sun . ", "original": "The Earth orbits the Sun.", "label": "None"}
+{"masked": "Exercise is good for your health . ", "original": "Exercise is good for your health.", "label": "None"}
+{"masked": "MSK<0> fruits and vegetables can improve your MSK<0> . ", "original": "Eating fruits and vegetables can improve your diet.", "label": "None"}
+{"masked": "The capital of MSK<0> is MSK<0> . ", "original": "The capital of France is Paris.", "label": "None"}
+{"masked": "Photosynthesis is the process by which plants make food . ", "original": "Photosynthesis is the process by which plants make food.", "label": "None"}
+{"masked": "The human body contains 206 bones . ", "original": "The human body contains 206 bones.", "label": "None"}
+{"masked": "Batteries store electrical energy . ", "original": "Batteries store electrical energy.", "label": "None"}
+{"masked": "Airplanes are used for long - distance travel . ", "original": "Airplanes are used for long-distance travel.", "label": "None"}
+{"masked": "Vaccines help protect against diseases . ", "original": "Vaccines help protect against diseases.", "label": "None"}
+{"masked": "The Pacific MSK<0> is the largest MSK<0> on Earth . ", "original": "The Pacific Ocean is the largest ocean on Earth.", "label": "None"}
+{"masked": "Mount Everest is the tallest mountain above sea level . ", "original": "Mount Everest is the tallest mountain above sea level.", "label": "None"}
+{"masked": "A healthy breakfast can boost your energy levels . ", "original": "A healthy breakfast can boost your energy levels.", "label": "None"}
+{"masked": "The Moon affects the tides of Earth . ", "original": "The Moon affects the tides of Earth.", "label": "None"}
+{"masked": "Recycling helps reduce environmental waste . ", "original": "Recycling helps reduce environmental waste.", "label": "None"}
+{"masked": "The internet allows people to communicate globally . ", "original": "The internet allows people to communicate globally.", "label": "None"}
+{"masked": "Sound travels slower than light . ", "original": "Sound travels slower than light.", "label": "None"}
+{"masked": "Drinking enough water helps maintain hydration . ", "original": "Drinking enough water helps maintain hydration.", "label": "None"}
+{"masked": "Learning a new language can improve cognitive skills . ", "original": "Learning a new language can improve cognitive skills.", "label": "None"}
+{"masked": "The boiling point of water is 100 degrees Celsius at sea level . ", "original": "The boiling point of water is 100 degrees Celsius at sea level.", "label": "None"}
+{"masked": "Solar panels convert sunlight into electricity . ", "original": "Solar panels convert sunlight into electricity.", "label": "None"}
+{"masked": "Wearing a seatbelt can reduce injury in a car crash . ", "original": "Wearing a seatbelt can reduce injury in a car crash.", "label": "None"}
+{"masked": "The MSK<0> is the largest hot MSK<0> in the world . ", "original": "The Sahara is the largest hot desert in the world.", "label": "None"}
+{"masked": "Reading regularly can expand your vocabulary . ", "original": "Reading regularly can expand your vocabulary.", "label": "None"}
+{"masked": "The heart pumps blood throughout the body . ", "original": "The heart pumps blood throughout the body.", "label": "None"}
