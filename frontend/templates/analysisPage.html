@@ -1,4 +1,4 @@
-<div class="analysis-container">
+<!-- <div class="analysis-container">
     <button class="back-button" hx-get="/initial" hx-target="#content-area" hx-swap="innerHTML">
         &#8592; Back to Input
     </button>
@@ -11,5 +11,26 @@
         </blockquote>
         
         <div class="model"><p><strong>Model:</strong>{{model}}</p></div>
+    </div>
+</div> -->
+
+<div class="analysis-container">
+    <button class="back-button" hx-get="/initial" hx-target="#content-area" hx-swap="innerHTML">
+        &#8592; Back to Input
+    </button>
+
+    <div class="analysis-content">
+        <h2>Analysis</h2>
+        <blockquote>
+            {{ userArgument }}
+        </blockquote>
+
+        <div class="model">
+            <p><strong>Model:</strong> {{ model }}</p>
+        </div>
+
+        <div class="fallacy">
+            <p><strong>Detected Fallacy:</strong> {{ fallacy }}</p>
+        </div>
     </div>
 </div>

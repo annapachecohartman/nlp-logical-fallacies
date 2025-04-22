@@ -50,6 +50,6 @@ examples = [
     "You're either with America or against America."
 ]
 
-for text in examples:
-    label = predict_fallacy_m1(text)
-    print(f"\"{text}\"\n→ Predicted: {label}\n")
+# for text in examples:
+#     label = predict_fallacy_m1(text)
+#     print(f"\"{text}\"\n→ Predicted: {label}\n")

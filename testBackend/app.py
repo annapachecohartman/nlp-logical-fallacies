@@ -1,17 +1,45 @@
+from backend.m1_predict import predict_fallacy_m1
+from backend.m2_predict import predict_fallacy_m2
+from backend.m3_predict import get_fallacy_response
 from flask import Flask, request, jsonify, render_template
 # from model.fallacy_model import predict_fallacies
 import os
 import re
 
 # Define paths for templates and static files
-template_dir = os.path.abspath('./../frontend/templates')
-static_dir = os.path.abspath('./../frontend/static')
+# template_dir = os.path.abspath('./../frontend/templates')
+# static_dir = os.path.abspath('./../frontend/static')
+
+template_dir = os.path.abspath('frontend/templates')
+static_dir = os.path.abspath('frontend/static')
 
 # Initialize Flask with custom template and static folders
 app = Flask(__name__, template_folder=template_dir, static_folder=static_dir)
 
 lastUserInput = ""
 lastUserModel = ""
+
+def getFallacy(model, text):
+    if model == "bert-fallacy-detector":
+        try:
+            fallacy = predict_fallacy_m1(text)
+            return fallacy
+        except:
+            return "Unsure"
+    elif model == "qlora-finetuned-tinyllama":
+        try:
+            fallacy = predict_fallacy_m2(text)
+            return fallacy
+        except:
+            return "Unsure"
+    elif model == "gpt-4.1-mini":
+        try:
+            # TODO: REPLACE WITH PREDICT FUNCTION FOR GPT
+            fallacy = get_fallacy_response(text)
+            return fallacy
+        except Exception as e:
+            print(e)
+            return "Unsure"
 
 @app.route("/", methods=["GET"])
 def home():
@@ -24,8 +52,20 @@ def analyze():
     user_input = request.form.get("userArgument")  # or request.form["text_input"]
     lastUserInput = user_input
     model = request.form.get("model")  # or request.form["text_input"]
-    print(user_input)
-    return render_template('analysisPage.html', userArgument=user_input, model=model)
+
+
+    lastUserModel = model
+    # Get fallacy using selected model
+    fallacy = getFallacy(model, user_input)
+
+    return render_template(
+        'analysisPage.html',
+        userArgument=user_input,
+        model=model,
+        fallacy=fallacy
+    )
+    # print(user_input)
+    # return render_template('analysisPage.html', userArgument=user_input, model=model)
 
 @app.route("/initial", methods=["GET"])
 def initial():
