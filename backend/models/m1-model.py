@@ -152,15 +152,6 @@ new_samples = [
 for sample in new_samples:
     dataset = dataset.add_item(sample)
 
-# Preprocess function to apply the mask_out_content
-def preprocess(example):
-    # Here we use the mask_out_content function from your preprocessing class
-    masked_statement = mask_out_content(example["statement"], model, client)
-    return {"masked_statement": masked_statement}
-
-# Apply the preprocessing to the dataset
-dataset = dataset.map(preprocess, batched=False)
-
 # Prepare texts and labels
 texts = dataset["masked_statement"]
 labels = dataset["label"]
