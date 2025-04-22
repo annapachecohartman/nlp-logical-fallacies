@@ -14,6 +14,8 @@ import os
 # Define the device for training
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
+
+
 # Load dataset
 dataset = load_dataset("MidhunKanadan/logical-fallacy-classification", split="train")
 texts = dataset["statement"]
@@ -150,8 +152,21 @@ new_samples = [
 for sample in new_samples:
     dataset = dataset.add_item(sample)
 
-texts = dataset["statement"]
+# Preprocess function to apply the mask_out_content
+def preprocess(example):
+    # Here we use the mask_out_content function from your preprocessing class
+    masked_statement = mask_out_content(example["statement"], model, client)
+    return {"masked_statement": masked_statement}
+
+# Apply the preprocessing to the dataset
+dataset = dataset.map(preprocess, batched=False)
+
+# Prepare texts and labels
+texts = dataset["masked_statement"]
 labels = dataset["label"]
+
+# texts = dataset["statement"]
+# labels = dataset["label"]
 
 # Map string labels to integers
 unique_labels = sorted(set(labels))
@@ -221,6 +236,8 @@ num_epochs = 5
 patience = 2
 best_val_acc = 0
 epochs_without_improvement = 0
+
+
 
 
 for epoch in range(num_epochs):

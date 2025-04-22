@@ -279,10 +279,12 @@ if __name__ == '__main__':
     import json
     from langdetect import detect
 
-    output_path = "data/masked_output.jsonl"
+    output_path = "data/labeled_masked_output.jsonl"
     def mask_and_save(dataset, text_field, label_field, save_path):
         with open(output_path, "a", encoding="utf-8") as out_file:
             for i, example in tqdm(enumerate(dataset), total=len(dataset)):
+                if i < 2600:
+                    continue  # Skip until start_index
                 text = example[text_field]
                 
                 try:
@@ -292,7 +294,7 @@ if __name__ == '__main__':
                         continue
 
                     masked = mask_out_content(text, model, client)
-                    json.dump({"masked": masked, "original": text}, out_file)
+                    json.dump({"masked": masked, "original": text, "label": example[label_field]}, out_file)
                     out_file.write("\n")
                     out_file.flush()
                     print(f"[{i}] ✅ Masked and saved")
